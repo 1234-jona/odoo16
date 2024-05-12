@@ -1,0 +1,251 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* dim_product
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e-20231019\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-22 19:20+0000\n"
+"PO-Revision-Date: 2023-11-22 19:20+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: dim_product
+#. odoo-python
+#: code:addons/dim_product/models/product_attributes.py:0
+#: code:addons/dim_product/models/product_attributes.py:0
+#, python-format
+msgid "%s (copy)"
+msgstr "%s (copia)"
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__active
+msgid "Active"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__model_id
+msgid "Applie to"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_multi_barcode__name
+msgid "Barcode"
+msgstr "Código de barras"
+
+#. module: dim_product
+#: model:ir.model.constraint,message:dim_product.constraint_product_multi_barcode_multi_barcode_unique
+msgid "Barcode Must be different!"
+msgstr ""
+
+#. module: dim_product
+#: model_terms:ir.actions.act_window,help:dim_product.action_product_attributes_family
+msgid "Click to register a family"
+msgstr ""
+
+#. module: dim_product
+#: model_terms:ir.actions.act_window,help:dim_product.action_product_attributes_trademark
+msgid "Click to register a trademarck"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__code
+msgid "Code"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__company_id
+msgid "Company"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__create_uid
+#: model:ir.model.fields,field_description:dim_product.field_product_multi_barcode__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__create_date
+#: model:ir.model.fields,field_description:dim_product.field_product_multi_barcode__create_date
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: dim_product
+#: model:ir.model,name:dim_product.model_product_attributes
+msgid "Custom fields of product attributes"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__name
+msgid "Description"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__display_name
+#: model:ir.model.fields,field_description:dim_product.field_product_multi_barcode__display_name
+msgid "Display Name"
+msgstr "Nombre a mostrar"
+
+#. module: dim_product
+#: model:ir.model.fields.selection,name:dim_product.selection__product_multi_barcode__type__ean13
+msgid "EAN13"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields.selection,name:dim_product.selection__product_multi_barcode__type__ean14
+msgid "EAN14"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.actions.act_window,name:dim_product.action_product_attributes_family
+#: model:ir.model.fields,field_description:dim_product.field_product_product__family_id
+#: model:ir.model.fields,field_description:dim_product.field_product_template__family_id
+msgid "Family"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__model_object_field
+msgid "Field"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__id
+#: model:ir.model.fields,field_description:dim_product.field_product_multi_barcode__id
+msgid "ID"
+msgstr ""
+
+#. module: dim_product
+#: model_terms:ir.ui.view,arch_db:dim_product.product_template_only_form_view_inherit_dim_product
+msgid "Information SKU"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes____last_update
+#: model:ir.model.fields,field_description:dim_product.field_product_multi_barcode____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__write_uid
+#: model:ir.model.fields,field_description:dim_product.field_product_multi_barcode__write_uid
+msgid "Last Updated by"
+msgstr "Ultima Actualización por"
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__write_date
+#: model:ir.model.fields,field_description:dim_product.field_product_multi_barcode__write_date
+msgid "Last Updated on"
+msgstr "Actualizado en"
+
+#. module: dim_product
+#: model:ir.model,name:dim_product.model_product_multi_barcode
+#: model:ir.model.fields,field_description:dim_product.field_product_product__product_barcode_ids
+#: model:ir.model.fields,field_description:dim_product.field_product_template__product_barcode_ids
+msgid "Multi Barcode"
+msgstr "Multiple código de barras"
+
+#. module: dim_product
+#: model_terms:ir.ui.view,arch_db:dim_product.product_normal_form_view_inherit_dim_product
+#: model_terms:ir.ui.view,arch_db:dim_product.product_template_only_form_view_inherit_dim_product
+msgid "Multiple Barcode"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__option
+msgid "Option Domain"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,help:dim_product.field_product_attributes__option
+msgid "Perform additional criteria filter, in case of using in two forms."
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model,name:dim_product.model_product_template
+#: model:ir.model.fields,field_description:dim_product.field_product_multi_barcode__product_tmpl_id
+msgid "Product"
+msgstr "Producto"
+
+#. module: dim_product
+#: model:ir.model,name:dim_product.model_product_product
+#: model:ir.model.fields,field_description:dim_product.field_product_multi_barcode__product_id
+msgid "Product Variant"
+msgstr "Variantes de producto"
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__model
+msgid "Related Document Model"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__res_id
+msgid "Resource ID"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__res_model
+msgid "Resource Model"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,help:dim_product.field_product_attributes__model_object_field
+msgid ""
+"Select target field from the related document model.\n"
+"If it is a relationship field you will be able to select a target field at the destination of the relationship."
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_attributes__sequence
+msgid "Sequence"
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,help:dim_product.field_product_attributes__active
+msgid "Set active to false to hide the value without removing it."
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,help:dim_product.field_product_attributes__res_model
+msgid "The database object this attachment will be attached to."
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,help:dim_product.field_product_attributes__res_id
+msgid "The record id this is attached to."
+msgstr ""
+
+#. module: dim_product
+#: model:ir.model.fields,help:dim_product.field_product_attributes__model_id
+msgid "The type of document this template can be used with"
+msgstr "El tipo de documento con el que se puede utilizar esta plantilla"
+
+#. module: dim_product
+#: model:ir.actions.act_window,name:dim_product.action_product_attributes_trademark
+#: model:ir.model.fields,field_description:dim_product.field_product_product__trademark_id
+#: model:ir.model.fields,field_description:dim_product.field_product_template__trademark_id
+msgid "Trademark"
+msgstr "Marca"
+
+#. module: dim_product
+#: model:ir.model.fields,field_description:dim_product.field_product_multi_barcode__type
+msgid "Type"
+msgstr "Tipo"
+
+#. module: dim_product
+#. odoo-python
+#: code:addons/dim_product/models/product_attributes.py:0
+#: model:ir.model.constraint,message:dim_product.constraint_product_attributes_name_uniq
+#, python-format
+msgid "Value already exists"
+msgstr "La variable ya existe"
+
+#. module: dim_product
+#: model_terms:ir.ui.view,arch_db:dim_product.view_product_attributes_form
+#: model_terms:ir.ui.view,arch_db:dim_product.view_product_attributes_tree
+msgid "Variable Value"
+msgstr "Valor variable"

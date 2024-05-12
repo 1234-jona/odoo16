@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xml>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="product_template_button_dim_website_product">
+			<field name="name">product.template.button.dim.website.product</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product.product_template_only_form_view"/>
+			<field name="arch" type="xml">
+				<xpath expr="//page[@name='information_sku']" position="after">
+					<page name="ficha_tecnica" string="Data sheet">
+						<group>
+							<group name="website" string="Publist on website">
+	                			<field name="website_status"/>
+                			</group>
+						</group>
+					</page>
+				</xpath>
+
+			</field>
+		</record>
+	</data>
+</odoo>

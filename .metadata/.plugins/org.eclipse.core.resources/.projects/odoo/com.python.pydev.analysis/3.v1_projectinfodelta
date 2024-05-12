@@ -1,0 +1,15 @@
+INSTUPodoo.addons.test_translation_import.models.models
+/home/jonathan/Documentos/workspace/odoo16/odoo/odoo/addons/test_translation_import/models/models.py
+INFOS:&&1|1|2|0|3|5|7&&3|4|2|1|3|6|5&&3|5|2|1|3|7|5&&3|6|2|1|3|9|5&&3|7|2|1|3|13|5&&3|8|2|1|3|14|5&&2|9|2|1|3|16|9&&2|10|2|1|3|20|9&&2|11|2|1|3|23|9&&2|12|2|1|3|26|9
+get_code_named_placeholder_translation=12
+odoo.addons.test_translation_import.models.models=2
+_name=4
+get_code_lazy_translation=10
+/home/jonathan/Documentos/workspace/odoo16/odoo/odoo/addons/test_translation_import/models/models.py=3
+selection=7
+xml=8
+name=6
+get_code_translation=9
+TestTranslationImportModel1=1
+_description=5
+get_code_placeholder_translation=11

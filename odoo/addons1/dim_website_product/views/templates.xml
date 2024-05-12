@@ -1,0 +1,411 @@
+<odoo>
+    <data>
+        <template id="page1" name="Products">
+            <t t-call="website.layout">
+                <div class="oe_structure">		
+                    <div class="container border-success">
+						<nav class="navbar navbar-expand-lg bg-body-tertiary ">
+  							<div class="container-fluid">
+    						<div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+     						<ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        						<li class="nav-item">
+									<div class="d-md-flex align-items-center">
+                        				<a class="nav-link active text-center" aria-current="page" href="/dim_website_product/page1">Productos</a>
+                   					</div>
+        						</li>
+      						</ul>
+      						<form class="d-flex" role="search" method="GET" action="/dim_website_product/page1">
+      							<input class="form-control me-2" type="search" name="search" placeholder="Busca producto" aria-label="Search" t-att-value="search_term"/>
+      							<button class="btn btn-outline-success" type="submit">Buscar</button>
+    						</form>
+    					</div>
+  					</div>
+				</nav>
+                        <h1 class="text-center p-3">Productos</h1>
+                        <div class="row pb-10" >
+							
+								 
+                            <t t-foreach="products" t-as="product">
+                                <div class="col-md-2"  >
+									
+                                    <div class="card border-success" style="height: 275px;" >
+                                        <div class="p-2	d-flex justify-content-center align-items-center" style="height: 125px;">
+											<img t-attf-src="/web/image?model=product.template&amp;id=#{product.id}&amp;field=image_1920" class="img-fluid rounded-start w-75 h-75 border border-success"/>
+										</div>
+										
+                                        <div class="card-body border-success" style="height: 80px;">
+                                           <p class="text-center small "><t t-esc="product.default_code"/></p>
+                                            <p class="text-center	small	mb-2 "><t t-esc="product.name"/></p>
+                                            
+                                        </div>
+                                        <br></br>
+                                        <a class="btn btn-success  mt-2 " t-att-href="'/dim_website_product/page2/' + str(product.id)">Ver Producto</a>   
+                                    </div>
+                                    <br/>
+                  
+                                </div>
+                                
+                            </t>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+        
+       <template id="page2" name="Product">
+            <t t-call="website.layout">
+                <div class="oe_structure p-4">
+                    <div class="container ">
+						
+                        <h1 class="text-center p-4 "> Ficha tecnica  </h1>
+                        <div class="card mb-3 border-success" style="max-width: 1300px; ">
+  							<div class="row g-0">
+    							<div class="col-md-5 p-4 d-flex justify-content-center align-items-center" style="height: 270px;">						
+									<img t-attf-src="/web/image?model=product.template&amp;id=#{product.id}&amp;field=image_1920" class="img-fluid rounded-start border border-success p-2" alt="No hay imagen"/>	
+    							</div>
+    							
+    						<div class="col-md-6 pl-10">
+      							<div class="card-body " >
+        							<table class="table border border-success p-2" >
+										<thead class=" border border-success">
+											
+											<tr class="text-center"	>
+												<th  colspan="4"> Informacion General </th>
+											</tr>
+										</thead>
+					
+										<tbody class="border border-success">
+											<tr class="table-active text-center border border-success">
+												<td class="border border-success small"><strong>Nombre:</strong></td>
+												<td class="border border-success small"><t t-esc="product.name"/></td>
+												<td class="border border-success small"><strong>Etiquetas de producto:</strong> </td>
+												<td class="border border-success small"><t t-esc="product.product_tag_ids.name"/></td>	
+											</tr>
+											<tr class="text-center border border-success">
+												<td class="border border-success small">
+    												<strong>Tipo de producto:</strong>	
+												</td>
+												<td>
+													<t t-if="product.detailed_type == 'product'">
+        												<t class="small" t-esc="'Almacenable'"/>
+    												</t>
+   													 <t t-if="product.detailed_type == 'consu'">
+       													<t class="small" t-esc="'Consumible'"/> 
+													</t>		
+													<t t-if="product.detailed_type == 'service'">
+       													 <t class="small" t-esc="'Servicio'"/>
+   													 </t>
+												</td>
+												<td class="border border-success small"><strong>Categoria de producto:</strong> </td>
+												<td><t t-esc="product.categ_id.name"/></td>
+											</tr>
+											<tr class="table-active text-center border border-success small">
+												<td class="border border-success"><strong>Referencia interna:</strong> </td>
+												<td><t t-esc="product.default_code"/></td>
+												<td class="border border-success"><strong>Codigo de barras:</strong> </td>
+												<td><t t-esc="product.barcode"/></td>
+											</tr>
+											<tr class="text-center border border-success small">
+												<td class="border border-success"><strong>Marca:</strong> </td>
+												<td><t t-esc="list_record['code_type']"/></td>
+												<td class="border border-success"><strong>Familia:</strong> </td>
+												<td><t t-esc="list_record['code_family']"/></td>
+											</tr>
+											
+											
+										</tbody>
+									</table>
+      							</div>
+    						</div>
+  						</div>
+  						<!-- raw material section -->
+
+  						<!-- raw material section -->
+  						<div class="row g-0 " >
+							  
+								<div class="col-md-12 pl-">
+      							<div class="card-body ">
+        							<table class="table border border-success p-1">
+										<thead class=" border border-success">
+											<tr class="text-center">
+												<th colspan="9" > Materia prima </th>
+											</tr>										
+										</thead>
+										<tbody class="border border-success">
+											<tr class="table-active text-center border border-success">
+												<td class="border border-success small"><strong>Descripcion</strong></td>
+												<td class="border border-success small"><strong>Familia</strong></td>
+												<td class="border border-success small"><strong>Especificaciones</strong></td>
+												<td class="border border-success small"> <strong>Tolerancia</strong></td>
+												<td class="border border-success small"><strong>Estado</strong></td>
+												<td class="border border-success small"><strong>Apariencia</strong></td>
+												<td class="border border-success small"><strong>Color</strong></td>
+												<td class="border border-success small"><strong>Parametros de control</strong> </td>
+												<td class="border border-success small"><strong>Determinacion</strong></td>	
+												<td class="border border-success small"><strong>Documento</strong></td>	
+											</tr>
+											<t t-foreach="list_record['list_boms']" t-as="bom">
+                        						<t t-foreach="bom['list_products']" t-as="product">
+                            						<tr class="text-center border border-success small">
+                                						<td class="border border-success small"><t t-esc="product.get('product_name')"/></td>
+                                						<td class="border border-success small"><t t-esc="product.get('mrp_family')"/></td>
+                                						<td class="border border-success small"><t t-esc="product.get('mrp_specifications')"/></td>
+                                						<td class="border border-success small"><t t-esc="product.get('mrp_tolerance')"/></td>
+                                						<td class="border border-success small"><t t-esc="product.get('mrp_state')"/></td>
+                                						<td class="border border-success small"><t t-esc="product.get('mrp_appearance')"/></td>
+                                						<td class="border border-success small"><t t-esc="product.get('mrp_color')"/></td>
+                                						<td class="border border-success small"><t t-esc="product.get('mrp_parameters_c')"/></td>
+                                						<td class="border border-success small"><t t-esc="product.get('mrp_determination')"/></td>
+                                						<td class="border border-success small"><t t-esc="product.get('mrp_document')"/></td>
+                            						</tr>
+                        						</t>
+                    						</t>
+										</tbody>
+									</table>
+      							</div>
+    						</div>
+    						 
+    									
+						  	<!-- raw material section -->
+  						<div class="row g-0 " >
+							  <div class="col-md-6 pl-12">
+      							<div class="card-body ">
+        							<table class="table border border-success p-1">
+										<thead class=" border border-success">
+											<tr class="text-center">
+												<th colspan="4" > Verificacion de presentacion </th>
+											</tr>	
+										</thead>
+					
+										<tbody class="border border-success">
+											<tr class="table-active text-center border border-success">
+												<td class="border border-success small"><strong>Descripcion</strong></td>
+												<td class="border border-success small"><strong>Unidad</strong></td>
+												<td class="border border-success small"><strong>Valor</strong></td>
+											</tr>
+											
+											<tr class="text-center border border-success">
+												<td class="border border-success small"><strong>Contenido de la paca</strong></td>
+												<td><t t-esc="list_record['uom_po_id']"/></td>
+												<td class="border border-success"><t t-esc="list_record['bale_content']"/></td>
+												
+												
+											</tr>
+											<tr class="table-active text-center border border-success small">
+												<td class="border border-success"><strong>Contenido del bulto:</strong> </td>
+												<td class="border border-success"><t t-esc="list_record['uom_po_id']"/></td>
+												<td class="border border-success"><t t-esc="list_record['package_contents']"/></td>
+												
+												
+											</tr>
+											<tr class="text-center border border-success small">
+												<td class="border border-success"><strong>Fecha de caducidad </strong> </td>
+												
+												<td colspan="2"><t t-esc="list_record['product_duration']"/></td>
+											
+												
+											</tr>
+											<tr class="table-active text-center border border-success small">
+												<td class="border border-success"><strong>Codigo interno</strong> </td>
+											
+												<td colspan="2"><t t-esc="list_record['default_code']"/></td>
+												
+												
+											</tr>
+											<tr class=" text-center border border-success small">
+												<td class="border border-success"><strong>Lote</strong> </td>
+												
+												<td colspan="2"><t t-esc="list_record['batch']"/></td>
+												
+												
+											</tr>
+											<tr class="table-active text-center border border-success small">
+												<td class="border border-success"><strong>PVP</strong> </td>
+												<td class="border border-success"><t t-esc="list_record['uom_po_id']"/></td>
+												<td class="border border-success"><t t-esc="list_record['list_price']"/></td>
+												
+												
+											</tr>
+											<tr class=" text-center border border-success small">
+												<td class="border border-success"><strong>Tipo de codigo de barras</strong> </td>
+												
+												<td colspan="2"><t t-esc="list_record['barcode_type']"/></td>
+												
+												
+											</tr>
+											<tr class="table-active text-center border border-success small">
+												<td class="border border-success small"><strong>Determinacion</strong></td>
+												<td ></td>
+												<td ><t t-esc="list_record['determination_presentation']"/></td>
+												
+											</tr>
+											
+											
+										</tbody>
+									</table>
+      							</div>
+    						</div>		  
+								<div class="col-md-6 pl-10">
+      							<div class="card-body ">
+        							<table class="table border border-success p-2">
+										<thead class=" border border-success">
+											<tr class="text-center">
+												<th colspan="4"  > Informacion SKU </th>
+											</tr>		
+										</thead>
+					
+										<tbody class="border border-success">
+											<tr class="table-active text-center border border-success">
+												<td class="border border-success small"><strong>Largo en cm</strong></td>
+												<td class="border border-success small"><t t-esc="list_record['largo']"/></td>
+												<td class="border border-success small"><strong>Ancho en cm</strong> </td>
+												<td class="border border-success small"><t t-esc="list_record['ancho']"/></td>	
+											</tr>
+											<tr class="text-center border border-success">
+												<td class="border border-success small">
+    												<strong>Alto en cm </strong>	
+												</td>
+												<td>
+													<t t-esc="list_record['alto']"/>
+												</td>
+												<td class="border border-success small"><strong>Peso</strong> </td>
+												<td></td>
+											</tr>
+											<tr class="table-active text-center border border-success small">
+												<td class="border border-success"><strong>Niveles de apilamiento</strong> </td>
+												<td><t t-esc="list_record['i_sku_stacking']"/></td>
+												<td class="border border-success"><strong>Numero de caja o bultos por nivel</strong> </td>
+												<td><t t-esc="list_record['i_sku_by_level']"/></td>
+											</tr>
+											<tr class="text-center border border-success small">
+												<td class="border border-success"><strong>Numero de caja o bultos por palet</strong> </td>
+												<td class="border border-success"><t t-esc="list_record['i_sku_per_pallet']"/></td>
+												<td class="border border-success"><strong>Volumen CD en m3</strong> </td>
+												<td class="border border-success"><t t-esc="list_record['volume_cd']"/></td>
+											</tr>
+											<tr class="table-active text-center border border-success">
+												<td colspan="2" class="border border-success"><strong>Seccion</strong></td>
+												<td colspan="2">Empaque primario</td>
+											</tr>
+											<tr>
+												<td class="border border-success small"><strong>Largo</strong></td>
+												<td class="border border-success small"></td>
+												<td class="border border-success small"><strong>Ancho</strong></td>
+												<td class="border border-success small"></td>
+											</tr>
+											<tr class="table-active text-center border border-success">
+												<td class="border border-success small"><strong>Alto</strong></td>
+												<td class="border border-success small"></td>
+												<td class="border border-success small"><strong>Peso neto del producto</strong></td>
+												<td class="border border-success small"></td>
+											</tr>
+											<tr>
+												<td class="border border-success small"><strong>Peso bruto del producto</strong></td>
+												<td class="border border-success small"></td>
+											</tr>
+											<tr class="table-active text-center border border-success">
+												<td colspan="2" class="border border-success"><strong>Seccion</strong></td>
+												<td colspan="2">Empaque secundario</td>
+											</tr>
+											<tr>
+												<td class="border border-success small"><strong>Largo</strong></td>
+												<td class="border border-success small"></td>
+												<td class="border border-success small"><strong>Ancho</strong></td>
+												<td class="border border-success small"></td>
+											</tr>
+											<tr class="table-active text-center border border-success">
+												<td class="border border-success small"><strong>Alto</strong></td>
+												<td class="border border-success small"></td>
+												<td class="border border-success small"><strong>Peso neto del producto</strong></td>
+												<td class="border border-success small"></td>
+												
+											</tr>
+											<tr>
+												<td class="border border-success small"><strong>Peso bruto del producto</strong></td>
+												<td class="border border-success small"></td>
+											</tr>
+											
+										</tbody>
+									</table>
+      							</div>
+    						</div>
+    									  
+						  </div>  
+						  </div>
+						  
+						  <div class="row g-0 " >
+							  <div class="col-md-4 pl-5">
+      							<div class="card-body ">
+        							<table class="table border border-success p-2">
+										<thead class=" border border-success">
+											<tr class="text-center">
+												<th colspan="4" > Etiqueta </th>
+											</tr>
+												
+										</thead>
+					
+										<tbody class="border border-success">
+											<tr class="table-active text-center border border-success">
+												<td class="border border-success small"><strong>Etiqueta:</strong></td>
+												<td class="border border-success small"><t t-esc="list_record['label']"/></td>
+												<td class="border border-success small"><strong>Material</strong> </td>
+												<td class="border border-success small"><t t-esc="list_record['et_material']"/></td>	
+											</tr>
+											<tr class="text-center border border-success small">
+												<td class="border border-success"><strong>N° NSO:</strong> </td>
+												<td class="border border-success"><t t-esc="list_record['et_nso']"/></td>
+												<td class="border border-success"></td>
+												<td class="border border-success"></td>
+											</tr>
+										</tbody>
+									</table>
+      							</div>
+    						</div>
+							  
+								<div class="col-md-8 pl-10">
+      							<div class="card-body ">
+        							<table class="table border border-success p-2">
+										<thead class=" border border-success">
+											<tr class="text-center">
+												<th colspan="5" > Control de calidad  </th>
+											</tr>
+												
+										</thead>
+					
+										<tbody class="border border-success">
+											<tr class="table-active text-center border border-success">
+												<td class="border border-success small"><strong>Disparador </strong></td>
+												<td class="border border-success small"><strong>Prueba </strong></td>
+												<td class="border border-success small"><strong>Responsable </strong></td>
+												<td class="border border-success small"><strong>Empresas </strong></td>
+												<td class="border border-success small"><strong>Plantilla del producto </strong></td>
+												
+											</tr>
+											<t t-foreach="list_record['list_boms']" t-as="bom">
+    											<t t-foreach="bom['iqc']" t-as="qc">
+        											<tr class="text-center border border-success small">
+            											<td class="border border-success small"><t t-esc="qc.get('trigger')"/></td>
+            											<td class="border border-success small"><t t-esc="qc.get('test')"/></td>
+            											<td class="border border-success small"><t t-esc="qc.get('user')"/></td>
+            											<td class="border border-success small"><t t-esc="qc.get('partners')"/></td>
+            											<td class="border border-success small"><t t-esc="qc.get('product_template')"/></td>
+        											</tr>
+    											</t>
+											</t>
+										</tbody>
+									</table>
+      							</div>
+    						</div>			  
+						  </div>
+						  <div class="row g-0">			  	         				
+						  </div>	
+  						<a class="btn btn-success" href="/dim_website_product/page1">Regresar</a>
+					</div>
+                    </div>
+                </div>
+             
+            </t>  
+        </template>
+        
+    </data>
+</odoo>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xml>
+<odoo>
+  <data>
+    <record id="wizard_product_templatee" model="ir.ui.view">
+      <field name="name">wizard.product.template.tree</field>
+      <field name="model">wizard.product.template</field>
+      <field name="arch" type="xml">
+        <form>
+            <group>
+            <field name="date_from"/>
+            <field name="date_after"/>
+            </group>
+        </form>
+      </field>
+    </record>
+   
+    <record id="action_menu_wizard" model="ir.actions.act_window">
+      <field name="name">Movimiento</field>
+      <field name="res_model">wizard.product.template</field>
+      <field name="view_mode">tree,form</field>
+      <field name="view_id" ref="wizard_product_templatee"/>
+      <field name="target">new</field>
+    </record>
+    <menuitem id="menu_root" name="Menu para practicar" parent="stock.menu_stock_root" action="action_menu_wizard"/>
+
+  </data>
+</odoo>

@@ -1,0 +1,50 @@
+<odoo>
+    <data>
+       <template id="page1" name="Page 1">
+    <t t-call="website.layout">
+        <div class="oe_structure">
+            <div class="container">
+                <h1>Products</h1>
+                <div class="row">
+                    <t t-foreach="products" t-as="product">
+                        <div class="col-md-4">
+                            <div class="card">
+                                <img  t-attf-src="/web/image?model=product.template&amp;id=#{product.id}&amp;field=image_1920" class="card-img-top" />
+                                <div class="card-body">
+                                    <h5 class="card-title"><t t-esc="product.name"/></h5>
+                                    <p class="card-text"><t t-esc="product.description"/></p>
+                                    <a class="btn btn-success" t-att-href="'/custom_module/page2/' + str(product.id)">Ver Producto</a>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </div>
+            </div>
+        </div>
+    </t>
+</template>
+
+
+
+        <template id="page2" name="Page 2">
+            <t t-call="website.layout">
+                <div class="oe_structure">
+                    <div class="container">
+                        <h1>Product Details</h1>
+                        <div class="card">
+                            <img  t-attf-src="/web/image?model=product.template&amp;id=#{product.id}&amp;field=image_1920" class="card-img-top" />
+                            <div class="card-body">
+                                <h5 class="card-title"><t t-esc="product.name"/></h5>
+                                <p>ID: <t t-esc="product.id"/></p>
+                                <p class="card-text"><t t-esc="product.description"/></p>
+                                <a class="btn btn-primary" href="/custom_module/page1">Regresar</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </t>
+        </template>
+    </data>
+
+    
+</odoo>

@@ -1,0 +1,8 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_product_attributes_all,product.attributes.all,model_product_attributes,,1,0,0,0
+access_product_attributes_user,product.attributes.user,model_product_attributes,stock.group_stock_user,1,0,0,0
+access_product_attributes_manager,product.attributes.manager,model_product_attributes,stock.group_stock_manager,1,1,1,1
+access_product_multi_barcode_user,access.product.multi.barcode.user,model_product_multi_barcode,stock.group_stock_user,1,0,0,0
+access_product_multi_barcode_manager,access.product.multi.barcode.manager,model_product_multi_barcode,stock.group_stock_manager,1,1,1,1
+
+

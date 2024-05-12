@@ -1,0 +1,98 @@
+<odoo>
+  <data>
+
+    <record model="ir.ui.view" id="view_sa_movimiento_form">
+      <field name="name">view.sa.movimiento.form</field>
+      <field name="model">sa.movimiento</field>
+      <field name="arch" type="xml">
+      <form>
+          <sheet>
+            <group>
+              <field name="name"/>
+            </group>
+            <group>
+              <group>
+                <field name="type_move" widget="radio"/>
+                <field name="currency_id"/>
+                <field name="amount" widget="monetary" options="{'currency_field':'currency_id'}"/>
+                <field name="date"/>
+              </group>
+              <group>
+                <field name="tag_ids" widget="many2many_tags"/>
+                <field name="id_category"/>
+              </group>
+            </group>
+            <group>
+              <field name="notas"/>
+              <field name="receip_image" widget="image"/>
+            </group>
+            <div class="oe_chatter">
+              <field name="message_ids" widget="mail_thread"/>          
+            </div>
+          </sheet>
+        </form>
+      </field>
+    </record>
+
+    <record id="view_sa_movimiento_tree" model="ir.ui.view">
+      <field name="name">view.sa.movimiento.tree</field>
+      <field name="model">sa.movimiento</field>
+      <field name="arch" type="xml">
+        <tree decoration-success="type_move=='ingreso'" decoration-danger="type_move=='gasto'">
+          <field name="date" optional="show"/>
+          <field name="name" optional="show"/>
+          <field name="type_move" optional="show"/>
+          <field name="amount" widget="monetary" options="{'currency_field':'currency_id'}" optional="show"/>
+          <field name="currency_id" invisible="1"/>
+          <field name="tag_ids" widget="many2many_tags" optional="hide"/>
+          <field name="id_category" optional="hide"/>
+        </tree>
+      </field>
+    </record>
+
+    <record id="view_sa_movimiento_search" model="ir.ui.view">
+      <field name="name">view.sa.movimiennto.search</field>
+      <field name="model">sa.movimiento</field>
+      <field name="arch" type="xml">
+        <search>
+          <field name="name"/>
+          <field name="type_move"/>
+          <field name="amount"/>
+          <field name="tag_ids"/>
+        </search>
+      </field>
+    </record>
+   
+    <record id="action_sa_movimiento" model="ir.actions.act_window">
+      <field name="name">Movimiento</field>
+      <field name="res_model">sa.movimiento</field>
+      <field name="view_mode">tree,form</field>
+    </record>
+
+    <record id="action_sa_category" model="ir.actions.act_window">
+      <field name="name">Categoria</field>
+      <field name="res_model">sa.category</field>
+    </record>
+
+    <record id="action_sa_tag" model="ir.actions.act_window">
+      <field name="name">Tag</field>
+      <field name="res_model">sa.tag</field>
+    </record>
+
+    <record id="action_sa_currency" model="ir.actions.act_window">
+      <field name="name">Currency</field>
+      <field name="res_model">res.currency</field>
+    </record>
+
+    
+
+    <menuitem id="menu_root" name="SaldoApp" action="action_sa_movimiento"/>
+    <menuitem id="menu_movimiento" name="Movimiento" parent="menu_root" action="action_sa_movimiento"/>
+    <menuitem id="ajustes_menu_root" name="Ajustes" parent="menu_root" action="action_sa_movimiento"/>
+  
+    <menuitem id="menu_category" name="Category" parent="ajustes_menu_root" action="action_sa_category"/>
+    <menuitem id="menu_tag" name="Tag" parent="ajustes_menu_root" action="action_sa_tag"/>
+    <menuitem id="menu_currency" name="Currency" parent="ajustes_menu_root" action="action_sa_currency"/>
+
+  </data>
+</odoo>

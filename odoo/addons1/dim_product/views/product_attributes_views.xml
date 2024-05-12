@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xml>
+<odoo>
+	<data>
+	
+    	<!-- Attributes-->
+
+		<record id="view_product_attributes_tree" model="ir.ui.view">
+            <field name="name">product.attributes.tree</field>
+            <field name="model">product.attributes</field>
+            <field name="arch" type="xml">
+                <tree string="Variable Value">
+                    <field name="sequence"/>
+                    <field name="name"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                    <field name="active"  widget="boolean_toggle"/>
+                </tree>
+            </field>
+        </record>
+
+    	<record id="view_product_attributes_form" model="ir.ui.view">
+            <field name="name">product.attributes.form</field>
+            <field name="model">product.attributes</field>
+            <field name="arch" type="xml">
+				<form string="Variable Value">
+                    <sheet>
+						<div class="oe_button_box" name="button_box">
+	                    </div>
+						<group>
+	                        <group>
+	                            <field name="name"/>
+	                            <field name="code"/>
+	                            <field name="sequence"/>
+	                            <field name="model_id" invisible="1"/>
+	                            <field name="option" invisible="1"/>
+	                        </group>
+	                        <group>
+	                        	<field name="res_model" invisible="1"/>
+	                        	<field name="res_id" invisible="1"/>
+	                            <field name="model" invisible="1"/>
+	                            <field name="model_object_field" invisible="1"/>
+	                            <field name="active"/>
+	                            <field name="company_id" groups="base.group_multi_company"/>
+	                        </group>
+	                    </group>
+                    </sheet>
+            	</form>
+            </field>
+		</record>
+
+
+        <record id="action_product_attributes_trademark" model="ir.actions.act_window">
+            <field name="name">Trademark</field>
+            <field name="res_model">product.attributes</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{'field': 'trademark_id', 'default_model': 'product.template', 'default_option': 'trademark',
+            	'default_res_model': 'product.template', 'show_group': False, 'active_test': False}</field>
+            <field name="domain">[('model','=','product.template'), ('option', '=', 'trademark')]</field>
+            <field name="view_id" ref="view_product_attributes_tree"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                  Click to register a trademarck
+                </p>
+            </field>
+        </record>
+
+
+        <record id="action_product_attributes_trademark_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_product_attributes_tree"/>
+            <field name="act_window_id" ref="action_product_attributes_trademark"/>
+        </record>
+
+        <record id="action_product_attributes_trademark_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_product_attributes_form"/>
+            <field name="act_window_id" ref="action_product_attributes_trademark"/>
+        </record>
+
+        <record id="action_product_attributes_family" model="ir.actions.act_window">
+            <field name="name">Family</field>
+            <field name="res_model">product.attributes</field>
+            <field name="view_mode">tree</field>
+            <field name="context">{'field': 'family_id', 'default_model': 'product.template', 'default_option': 'family',
+            	'default_res_model': 'product.template', 'show_group': False, 'active_test': False}</field>
+            <field name="domain">[('model','=','product.template'), ('option', '=', 'family')]</field>
+            <field name="view_id" ref="view_product_attributes_tree"/>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">
+                  Click to register a family
+                </p>
+            </field>
+        </record>
+
+
+        <record id="action_product_attributes_family_tree" model="ir.actions.act_window.view">
+            <field eval="1" name="sequence"/>
+            <field name="view_mode">tree</field>
+            <field name="view_id" ref="view_product_attributes_tree"/>
+            <field name="act_window_id" ref="action_product_attributes_family"/>
+        </record>
+
+        <record id="action_product_attributes_family_form" model="ir.actions.act_window.view">
+            <field eval="2" name="sequence"/>
+            <field name="view_mode">form</field>
+            <field name="view_id" ref="view_product_attributes_form"/>
+            <field name="act_window_id" ref="action_product_attributes_family"/>
+        </record>
+
+
+	</data>
+</odoo>	

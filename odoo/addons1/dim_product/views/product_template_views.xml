@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE xml>
+<odoo>
+	<data>
+
+		
+		<record model="ir.ui.view" id="product_template_only_form_view_inherit_dim_product">
+			<field name="name">product.template.product.form.inherit.dim_product</field>
+			<field name="model">product.template</field>
+			<field name="inherit_id" ref="product.product_template_only_form_view"/>
+			<field name="arch" type="xml">
+
+				<xpath expr="//page[@name='general_information']" position="after">
+					<page name="multi_barcode" string="Multiple Barcode">
+						<field name="product_barcode_ids">
+							<tree editable="bottom">
+								<field name="type"/>
+								<field name="name"/>
+								<field name="product_tmpl_id" invisible="1"/>
+								<field name="product_id" invisible="1"/>
+							</tree>
+						</field>
+					</page>
+					<page name="information_sku" string="Information SKU">
+						<group>
+							<group>
+								<field name="trademark_id" options="{'no_create': True, 'no_open': True}"
+									context="{'field': 'trademark_id', 'default_model': 'product.template',
+									'default_res_model': 'product.template', 'default_option': 'trademark'}"
+									domain="[('model','=','product.template'), ('option','=','trademark')]"/>
+								<field name="family_id" options="{'no_create': True, 'no_open': True}"
+									context="{'field': 'family_id', 'default_model': 'product.template',
+									'default_res_model': 'product.template', 'default_option': 'family'}"
+									domain="[('model','=','product.template'), ('option','=','family')]"/>
+							</group>
+							<group>
+							</group>
+						</group>
+					</page>
+				</xpath>
+
+			</field>
+		</record>
+
+
+		<record model="ir.ui.view" id="product_normal_form_view_inherit_dim_product">
+			<field name="name">product.product.form.inherit.dim_product</field>
+			<field name="model">product.product</field>
+			<field name="inherit_id" ref="product.product_normal_form_view"/>
+			<field name="arch" type="xml">
+			
+				<xpath expr="//page[@name='general_information']" position="after">
+					<page name="multi_barcode" string="Multiple Barcode">
+						<field name="product_barcode_ids">
+							<tree editable="bottom">
+								<field name="type"/>
+								<field name="name"/>
+								<field name="product_tmpl_id" invisible="1"/>
+								<field name="product_id" invisible="1"/>
+							</tree>
+						</field>
+					</page>
+				</xpath>
+
+			</field>
+		</record>
+
+
+	</data>
+</odoo>
